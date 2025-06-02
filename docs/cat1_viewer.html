@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Catalizador 1 – Visor 3D</title>
+  <script src="https://unpkg.com/miew@0.13.0/build/miew.min.js"></script>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+    }
+    #miew-container {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div id="miew-container"></div>
+  <script>
+    const viewer = new Miew({
+      container: 'miew-container',
+      load: [{
+        source: 'https://raw.githubusercontent.com/cruzolijavier/moleculas_3D/refs/heads/main/cat1_def.pdb',
+        type: 'pdb'
+      }],
+      settings: {
+        reps: 'cpk',
+        bg: { color: 'white' }
+      }
+    });
+
+    if (viewer.init()) {
+      viewer.run();
+    }
+  </script>
+</body>
+</html>
